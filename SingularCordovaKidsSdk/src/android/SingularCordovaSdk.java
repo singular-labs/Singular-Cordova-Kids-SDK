@@ -321,11 +321,6 @@ public class SingularCordovaSdk extends CordovaPlugin {
             config.withCustomUserId(customUserId);
         }
 
-        String imei = configJson.optString("imei", null);
-        if (imei != null) {
-            config.withIMEI(imei);
-        }
-
         int sessionTimeout = configJson.optInt("sessionTimeout", -1);
         if (sessionTimeout >= 0) {
             config.withSessionTimeoutInSec(sessionTimeout);
