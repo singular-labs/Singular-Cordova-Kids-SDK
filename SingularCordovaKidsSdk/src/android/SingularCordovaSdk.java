@@ -1,4 +1,4 @@
-package singular_cordova_sdk;
+package singular_cordova_kids_sdk;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
@@ -319,11 +319,6 @@ public class SingularCordovaSdk extends CordovaPlugin {
         String customUserId = configJson.optString("customUserId", null);
         if (customUserId != null) {
             config.withCustomUserId(customUserId);
-        }
-
-        String imei = configJson.optString("imei", null);
-        if (imei != null) {
-            config.withIMEI(imei);
         }
 
         int sessionTimeout = configJson.optInt("sessionTimeout", -1);

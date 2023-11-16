@@ -1,4 +1,4 @@
-<plugin id="singular_cordova_sdk" version="1.2.0"
+<plugin id="singular_cordova_kids_sdk" version="1.2.0"
 	xmlns="http://apache.org/cordova/ns/plugins/1.0"
 	xmlns:android="http://schemas.android.com/apk/res/android">
 	<name>SingularCordovaSdk</name>
@@ -26,7 +26,7 @@
                 <source url="https://github.com/CocoaPods/Specs.git"/>
             </config>
             <pods use-frameworks="true">
-                <pod name="Singular-SDK" spec="~> 12.2.0" />
+                <pod name="Singular-Kids-SDK" spec="~> 12.2.0" />
             </pods>
         </podspec>
 		<config-file parent="/*" target="config.xml">
@@ -39,10 +39,10 @@
 		<source-file src="src/ios/SingularCordovaSdk.m" />
 	</platform>
 	<platform name="android">
-        <framework custom="true" src="src/android/singular_cordova_sdk.gradle" type="gradleReference" />
+        <framework custom="true" src="src/android/singular_cordova_kids_sdk.gradle" type="gradleReference" />
 		<config-file parent="/*" target="res/xml/config.xml">
 			<feature name="SingularCordovaSdk">
-				<param name="android-package" value="singular_cordova_sdk.SingularCordovaSdk" />
+				<param name="android-package" value="singular_cordova_kids_sdk.SingularCordovaSdk" />
 			</feature>
 		</config-file>
 		<config-file parent="/*" target="AndroidManifest.xml">
@@ -50,6 +50,6 @@
 			<uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 			<uses-permission android:name="com.android.vending.CHECK_LICENSE" />
         </config-file>
-		<source-file src="src/android/SingularCordovaSdk.java" target-dir="src/singular_cordova_sdk/SingularCordovaSdk" />
+		<source-file src="src/android/SingularCordovaSdk.java" target-dir="src/singular_cordova_kids_sdk/SingularCordovaSdk" />
 	</platform>
 </plugin>

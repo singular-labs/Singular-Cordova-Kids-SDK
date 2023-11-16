@@ -21,7 +21,7 @@ package com.singular.singularapp4;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
-import singular_cordova_sdk.SingularCordovaSdk;
+import singular_cordova_kids_sdk.SingularCordovaSdk;
 import android.content.Intent;
 import android.util.Log;
 
