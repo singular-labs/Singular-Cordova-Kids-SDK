@@ -1,4 +1,4 @@
-package singular_cordova_sdk;
+package singular_cordova_kids_sdk;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;

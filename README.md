@@ -3,9 +3,9 @@
 <img src="https://www.singular.net/wp-content/uploads/2022/02/singular_15012020.png">  
   
 # Cordova Singular plugin for Android and iOS.   
-[![npm version](https://badge.fury.io/js/singular_cordova_sdk.svg)](https://badge.fury.io/js/https://www.npmjs.com/package/singular_cordova_sdk)  
+[![npm version](https://badge.fury.io/js/singular_cordova_kids_sdk.svg)](https://badge.fury.io/js/https://www.npmjs.com/package/singular_cordova_kids_sdk)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)   
-[![Downloads](https://img.shields.io/npm/dm/singular_cordova_sdk.svg)](https://www.npmjs.com/package/singular_cordova_sdk)  
+[![Downloads](https://img.shields.io/npm/dm/singular_cordova_kids_sdk.svg)](https://www.npmjs.com/package/singular_cordova_kids_sdk)  
 
 
 
@@ -22,8 +22,8 @@
   
 ### <a id="plugin-build-for"> This plugin is built for  
   
-- iOS Singular SDK **v12.0.7**  
-- Android Singular SDK **12.1.3**  
+- iOS Singular SDK **v12.2.0**  
+- Android Singular SDK **12.4.0**  
   
 
   
@@ -31,7 +31,7 @@
 ## <a id="installation">📲Installation  
   
 ```  
-$ cordova plugin add singular_cordova_sdk  
+$ cordova plugin add singular_cordova_kids_sdk  
 ```  
 
   
@@ -66,14 +66,14 @@ document.addEventListener('deviceready', function() {
   
   
 ## <a id="sample-app"> 📱 Sample App  
-A sample app can be found in [here](https://github.com/singular-labs/Singular-Cordova-SDK/tree/main/SampleApp)
+A sample app can be found in [here](https://github.com/singular-labs/Singular-Cordova-Kids-SDK/tree/main/SampleApp)
 ## <a id="ionic"> 📍 Ionic  
 
   
 ###  Using the `cordova` object directly  
 Install the cordova plugin:  
 ```  
-$ ionic cordova plugin add singular_cordova_sdk  
+$ ionic cordova plugin add singular_cordova_kids_sdk  
 ```  
 In your main ts file, declare a window variable:  
 ```javascript  

@@ -1,0 +1,30 @@
+{
+  "name": "singular_cordova_kids_sdk",
+  "version": "1.2.0-KIDS",
+  "description": "Singular Cordova Kids SDK",
+  "cordova": {
+    "id": "singular_cordova_kids_sdk",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/singular-labs/Singular-Cordova-Kids-SDK.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "author": "Singular Labs",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/singular-labs/Singular-Cordova-Kids-SDK/blob/master/LICENSE"
+  },
+  "bugs": {
+    "url": "https://github.com/singular-labs/Singular-Cordova-Kids-SDK/issues"
+  },
+  "homepage": "https://github.com/singular-labs/Singular-Cordova-Kids-SDK#readme"
+}
