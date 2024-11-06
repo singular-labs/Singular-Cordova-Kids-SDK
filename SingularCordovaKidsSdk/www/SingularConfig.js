@@ -7,7 +7,7 @@ function SingularConfig(apikey, secret) {
         this.waitForTrackingAuthorizationWithTimeoutInterval = 0;
         this.limitDataSharing = null;
         this.shortLinkResolveTimeout = 10; // default timeout 10s
-        this.globalProperties = {}
+        this.globalProperties = {};
         this.collectOAID = false;
         this.enableLogging = false;
         this.clipboardAttribution = false;
@@ -16,6 +16,7 @@ function SingularConfig(apikey, secret) {
         this.customSdid = null;
         this.didSetSdidCallback = null;
         this.sdidReceivedCallback = null;
+        this.deviceAttributionCallbackHandler = null;
     }
 
 SingularConfig.prototype.withSessionTimeoutInSec = function(sessionTimeout) {
