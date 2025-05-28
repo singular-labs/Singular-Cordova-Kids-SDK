@@ -17,6 +17,8 @@ function SingularConfig(apikey, secret) {
         this.didSetSdidCallback = null;
         this.sdidReceivedCallback = null;
         this.deviceAttributionCallbackHandler = null;
+        this.pushNotificationsLinkPaths = [[]];
+        this.brandedDomains = [];
     }
 
 SingularConfig.prototype.withSessionTimeoutInSec = function(sessionTimeout) {
@@ -115,5 +117,15 @@ SingularConfig.prototype.withCustomSdid = function(customSdid, didSetSdidCallbac
     this.sdidReceivedCallback = sdidReceivedCallback;
     return this;
  }
+
+SingularConfig.prototype.withPushNotificationsLinkPaths = function(pushNotificationsLinkPaths) {
+    this.pushNotificationsLinkPaths = pushNotificationsLinkPaths;
+    return this;
+}
+
+SingularConfig.prototype.withBrandedDomains = function (brandedDomains) {
+    this.brandedDomains = brandedDomains;
+    return this;
+}
 
 module.exports = SingularConfig;
