@@ -22,6 +22,13 @@ static SingularCordovaSdk* instance;
     instance = self;
 }
 
+- (void)handlePushNotification:(CDVInvokedUrlCommand*)command {
+    NSDictionary* pushNotificationPayload = [command.arguments objectAtIndex:0];
+    [Singular handlePushNotification:pushNotificationPayload];
+    CDVPluginResult*  pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: @"true"];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 + (void)startSessionWithUserActivity:(NSUserActivity*)userActivity{
     [Singular startSession:apikey
                    withKey:secret
@@ -244,12 +251,10 @@ static SingularCordovaSdk* instance;
         singularConfig.manualSkanConversionManagement = [[singularConfigDict objectForKey:@"manualSkanConversionManagement"] boolValue];
         singularConfig.conversionValueUpdatedCallback = ^(NSInteger conversionValue) {
             [self handleConversionValue: conversionValue];
-            
         };
         
         singularConfig.conversionValueUpdatedCallback = ^(NSInteger conversionValue) {
             [self handleConversionValue: conversionValue];
-            
         };
         
         singularConfig.conversionValuesUpdatedCallback = ^(NSNumber * conversionValue, NSNumber * coarse, BOOL lock) {
@@ -270,7 +275,7 @@ static SingularCordovaSdk* instance;
         }
         
         NSNumber* sessionTimeout = [singularConfigDict objectForKey:@"sessionTimeout"];
-        if (sessionTimeout >= 0) {
+        if ([sessionTimeout intValue] >= 0) {
             [Singular setSessionTimeout:[sessionTimeout intValue]];
         }
         
@@ -278,13 +283,18 @@ static SingularCordovaSdk* instance;
         if (espDomains) {
             singularConfig.espDomains = espDomains;
         }
-        
+
+        NSArray *brandedDomains = [singularConfigDict objectForKey:@"brandedDomains"];
+        if (brandedDomains) {
+            singularConfig.brandedDomains = brandedDomains;
+        }
+
         // SDID
         NSString* customSdid = [singularConfigDict objectForKey:@"customSdid"];
         if (![self isValidNonEmptyString:customSdid]) {
             customSdid = nil;
         }
-        
+
         singularConfig.customSdid = customSdid;
         
         singularConfig.sdidReceivedHandler = ^(NSString *result) {
@@ -294,7 +304,10 @@ static SingularCordovaSdk* instance;
         singularConfig.didSetSdidHandler = ^(NSString *result) {
             [self handleDidSetSdid:result];
         };
-        
+
+        // push
+        singularConfig.pushNotificationLinkPath = [singularConfigDict objectForKey:@"pushNotificationsLinkPaths"];
+
         [Singular start:singularConfig];
         
         NSDictionary* paramsDict = @{
@@ -437,7 +450,7 @@ static SingularCordovaSdk* instance;
 - (void)skanUpdateConversionValue:(CDVInvokedUrlCommand*)command
 {
     NSNumber* conversionValue = [command.arguments objectAtIndex:0];
-    BOOL res = [Singular skanUpdateConversionValue:[conversionValue intValue] ];
+    BOOL res = [Singular skanUpdateConversionValue:[conversionValue intValue]];
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:res? @"true": @"false"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId]; 
 }
