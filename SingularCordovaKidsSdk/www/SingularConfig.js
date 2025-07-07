@@ -19,6 +19,7 @@ function SingularConfig(apikey, secret) {
         this.deviceAttributionCallbackHandler = null;
         this.pushNotificationsLinkPaths = [[]];
         this.brandedDomains = [];
+        this.enableOdmWithTimeoutInterval = -1;
     }
 
 SingularConfig.prototype.withSessionTimeoutInSec = function(sessionTimeout) {
@@ -127,5 +128,10 @@ SingularConfig.prototype.withBrandedDomains = function (brandedDomains) {
     this.brandedDomains = brandedDomains;
     return this;
 }
+
+SingularConfig.prototype.withEnableOdmWithTimeoutInterval = function (enableOdmWithTimeoutInterval) {
+     this.enableOdmWithTimeoutInterval = enableOdmWithTimeoutInterval;
+     return this;
+ }
 
 module.exports = SingularConfig;
